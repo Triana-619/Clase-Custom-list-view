@@ -14,11 +14,11 @@
 
             <!-- Imagen centrada en la parte superior izquierda -->
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fotoperfilUsuario"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/primo"
-                android:layout_gravity="start|top">
-            </de.hdodenhof.circleimageview.CircleImageView>
+                android:layout_gravity="start|top"
+                android:src="@drawable/primo"></de.hdodenhof.circleimageview.CircleImageView>
 
             <!-- Textos a la derecha de la imagen -->
             <LinearLayout
