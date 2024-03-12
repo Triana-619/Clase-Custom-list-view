@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import javax.swing.text.View;
+
 public class MainActivity extends AppCompatActivity {
 
     ListView listaPersona;
@@ -39,5 +41,18 @@ public class MainActivity extends AppCompatActivity {
         ListAdapter personas = new ListAdapter(MainActivity.this,nombres,telefonos,fotoPerfil);
         listaPersona = (ListView) findViewById(R.id.listaUsuario);
         listaPersona.setAdapter(personas);
+
+        listaPersona.setOnClickListener(new adapterView.OnItemClickListener){
+            @override
+            public void onItemClick(AdapterView<?> lista, View vista, int posicion, long id){
+                    Intent enviarinfo = new Intent(MainActivity.this,UserActivity.class)
+                            .putExtra("nombre",nombres[posicion])
+                            .putExtra("telefono",telefonos[posicion])
+                            .putExtra("imagen",fotoPerfil[posicion]);
+
+                    startActivity(enviarinfo);
+            }
+
+        }
     }
 }
