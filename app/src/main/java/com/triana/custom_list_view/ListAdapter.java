@@ -10,15 +10,16 @@ import android.widget.TextView;
 
 public class ListAdapter extends BaseAdapter {
     Context Contexto;
-    String[] Nombres, NumeroTelefono;
+    String[] Nombres, NumeroTelefono, Biografias;
     int[] IdImage;
     LayoutInflater inflater;
-    public ListAdapter (Context contexto, String[] nombres,String[] numeroTelefono,int[] idImage){
+    public ListAdapter (Context contexto, String[] nombres, String[] numeroTelefono, int[] idImage, String[] biografias){
 
         this.Contexto = contexto;
         this.Nombres = nombres;
         this.NumeroTelefono = numeroTelefono;
         this.IdImage = idImage;
+        this.Biografias = biografias;
         inflater = LayoutInflater.from(Contexto);
     }
 
@@ -40,7 +41,7 @@ public class ListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflater.inflate(R.layout.list_item,null);
-        ImageView fotoPerfil = view.findViewById(R.id.fotoperfilUsuario);
+        ImageView fotoPerfil = view.findViewById(R.id.fotoperfil);
         TextView nombreUsuario = view.findViewById(R.id.nombre);
         TextView telUsuario = view.findViewById(R.id.telefono);
         fotoPerfil.setImageResource(IdImage[i]);

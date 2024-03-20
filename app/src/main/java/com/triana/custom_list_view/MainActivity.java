@@ -2,10 +2,11 @@ package com.triana.custom_list_view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-
-import javax.swing.text.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,10 +26,17 @@ public class MainActivity extends AppCompatActivity {
         };
         String[] nombres = {
                 "Juicewrdl",
+                "mac miller producción",
+                "Lil peep",
+                "Post malone",
                 "mac miller",
-                "post malone",
-                "lil peep",
-                "mac miller",
+        };
+        String[] biografias = {
+                "Biografía de Juicewrdl",
+                "Biografía de Mac Miller",
+                "Biografía de Lil peep",
+                "Biografía de Post malone",
+                "Biografía de Mac Miller",
         };
         String[] telefonos = {
                 "1111111",
@@ -38,21 +46,22 @@ public class MainActivity extends AppCompatActivity {
                 "5555555",
         };
 
-        ListAdapter personas = new ListAdapter(MainActivity.this,nombres,telefonos,fotoPerfil);
+        ListAdapter personas = new ListAdapter(MainActivity.this,nombres,telefonos,fotoPerfil,biografias);
         listaPersona = (ListView) findViewById(R.id.listaUsuario);
         listaPersona.setAdapter(personas);
 
-        listaPersona.setOnClickListener(new adapterView.OnItemClickListener){
-            @override
-            public void onItemClick(AdapterView<?> lista, View vista, int posicion, long id){
-                    Intent enviarinfo = new Intent(MainActivity.this,UserActivity.class)
-                            .putExtra("nombre",nombres[posicion])
-                            .putExtra("telefono",telefonos[posicion])
-                            .putExtra("imagen",fotoPerfil[posicion]);
+        listaPersona.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> Lista, View Vista, int Posicion, long Id){
 
-                    startActivity(enviarinfo);
+                Intent EnviarInfo = new Intent(MainActivity.this, UserActivity.class)
+                        .putExtra("Nombre: ", nombres[Posicion])
+                        .putExtra("Teléfono: ", telefonos[Posicion])
+                        .putExtra("Foto de Perfil: ", fotoPerfil[Posicion])
+                        .putExtra("Biografia: ", biografias[Posicion]);
+                startActivity(EnviarInfo);
             }
+        });
 
         }
     }
-}
