@@ -22,7 +22,7 @@
             android:id="@+id/nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:text="Nombre" />
 
@@ -30,8 +30,15 @@
             android:id="@+id/telefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:text="Teléfono" />
+        <TextView
+            android:id="@+id/contadorVisitas"
+            android:text="@string/visitas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp">
+        </TextView>
 
     </LinearLayout>
 
